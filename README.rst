@@ -3,6 +3,8 @@
 Atlite
 ======
 
+|zenodo atlite-pc|
+
 atlite-pc: atlite with added Photocatalysis (PC) Module
 
 atlite-pc: is fork of the `atlite repository from PyPSA <https://github.com/PyPSA/atlite>`_  with added photocatalysis (PC) for hydrogen production.
@@ -60,3 +62,7 @@ See the individual files for license details.
 .. _BSD-2-Clause: LICENSES/BSD-2-Clause.txt
 .. _CC-BY-4.0: LICENSES/CC-BY-4.0.txt
 .. _CC0-1.0: LICENSES/CC0-1.0.txt
+
+
+.. |zenodo atlite-pc| image:: https://zenodo.org/badge/1021476497.svg
+    :target: https://doi.org/10.5281/zenodo.16566337
