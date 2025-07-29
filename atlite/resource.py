@@ -31,6 +31,7 @@ RESOURCE_DIRECTORY = Path(pkg_resources.resource_filename(__name__, "resources")
 WINDTURBINE_DIRECTORY = RESOURCE_DIRECTORY / "windturbine"
 SOLARPANEL_DIRECTORY = RESOURCE_DIRECTORY / "solarpanel"
 CSPINSTALLATION_DIRECTORY = RESOURCE_DIRECTORY / "cspinstallation"
+PHOTOCATALYSIS_DIRECTORY = RESOURCE_DIRECTORY / "photocatalysispanel"
 
 
 def get_windturbineconfig(turbine, add_cutout_windspeed=False):
@@ -491,10 +492,45 @@ def get_oedb_windturbineconfig(search=None, **search_params):
     return turbineconf
 
 
+def get_photocatalysis_config(panel):
+    """
+    Load the {panel}.yaml file from local disk and provide a photocatalysis
+    panel dict.
+
+    Parameters
+    ----------
+    panel : str or pathlib.Path
+        if str is provided the name of a preshipped panel
+            from alite.resources.photocatalysispanel is expected.
+        if `pathlib.Path` is provided the configuration
+            is read from this local path instead
+
+    Returns
+    ----------
+    config : dict
+        Config with details on the photocatalysispanel
+    """
+    assert isinstance(panel, (str, Path))
+
+    if isinstance(panel, str):
+        panel_path = photocatalysispanels[panel.replace(".yaml", "")]
+
+    elif isinstance(panel, Path):
+        panel_path = panel
+
+    with open(panel_path, "r") as f:
+        conf = yaml.safe_load(f)
+
+    return conf
+
+
 # Global caches
 _oedb_turbines = None
 windturbines = arrowdict({p.stem: p for p in WINDTURBINE_DIRECTORY.glob("*.yaml")})
 solarpanels = arrowdict({p.stem: p for p in SOLARPANEL_DIRECTORY.glob("*.yaml")})
+photocatalysispanels = arrowdict(
+    {p.stem: p for p in PHOTOCATALYSIS_DIRECTORY.glob("*.yaml")}
+)
 cspinstallations = arrowdict(
     {p.stem: p for p in CSPINSTALLATION_DIRECTORY.glob("*.yaml")}
 )

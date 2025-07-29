@@ -25,6 +25,9 @@ paper
 .coverage*
 !.coveragerc
 
+examples/110m_cultural
+examples/110m_cultural*
+
 # Ignore PyCharm / JetBrains IDE project files
 .idea/
 examples/Helsinki-Vantaa_2012.ipynb

@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-name: atlite
+name: atlite-test
 channels:
 - conda-forge
 - defaults
@@ -27,9 +27,14 @@ dependencies:
 - progressbar2
 - tqdm
 
+# iypthon
+- jupyter
+- ipykernel
+
   # dev tools
 - black
 - pre-commit
+- jupyter
 
   # Recommended for pandas and xarray
 - bottleneck

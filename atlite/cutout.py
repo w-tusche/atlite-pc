@@ -40,6 +40,7 @@ from atlite.convert import (
     hydro,
     irradiation,
     line_rating,
+    photocatalysis,
     pv,
     runoff,
     soil_temperature,
@@ -213,7 +214,6 @@ class Cutout:
                     "passed via argument 'bounds' or 'x' and 'y'."
                 ) from exc
 
-            # TODO: check for dx, dy, x, y fine with module requirements
             coords = get_coords(x, y, time, **cutoutparams)
 
             attrs = {
@@ -693,6 +693,8 @@ class Cutout:
     irradiation = irradiation
 
     pv = pv
+
+    photocatalysis = photocatalysis
 
     csp = csp
 

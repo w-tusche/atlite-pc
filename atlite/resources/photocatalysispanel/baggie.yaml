@@ -1,0 +1,16 @@
+model: baggie
+name: baggie
+source:
+
+
+# Reference conditions
+
+# Irradiance used for the calculation of the capacity
+r_irradiance: 1000 # W/m2
+
+#Irradiation type to use for the calculation of the irradiance:
+# direct or total
+irradiation_type: "total"
+
+# High and low efficiency and temperature for interpolation of the efficiency at different temperature levels.
+STH: .10

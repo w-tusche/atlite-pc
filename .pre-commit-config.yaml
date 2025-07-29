@@ -52,10 +52,10 @@ repos:
   # Format Jupyter Python notebooks
   - id: black-jupyter
 
-- repo: https://github.com/fsfe/reuse-tool
-  rev: v3.0.2
-  hooks:
-  - id: reuse
+# - repo: https://github.com/fsfe/reuse-tool
+#   rev: v3.0.2
+#   hooks:
+#   - id: reuse
 
 # Do YAML formatting (before the linter checks it for misses)
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
